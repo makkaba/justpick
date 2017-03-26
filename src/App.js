@@ -5,20 +5,25 @@ import './App.css';
 import Item from './Item';
 import TodoForm from './TodoForm';
 import { addTodo, removeTodo, markDone } from './modules/Todo';
-import { init, signInAnonymously, onAuthStateChanged } from './firebaseHelper';
+import * as FirebaseAction from './firebaseHelper';
 
 
 class App extends Component {
   constructor() {
     super();
     
+    this.state = {
+      todos: []
+    };
   }
   
   componentDidMount() {
     //로딩되자 마자 익명의 사용자로 로그인 시킨다 
+    FirebaseAction.onAuthStateChanged();
     
-    onAuthStateChanged();
-    this.props.addTodo('harry');
+    FirebaseAction.getTodoList(this.onChangeList);
+    
+    //this.setState(todos);
   }
   
   
@@ -36,6 +41,11 @@ class App extends Component {
   //     ]
   //   });
   // }
+
+  onChangeList(todos){
+    this.setState({...this.state, todoList: todos});
+  }
+
 
   render() {
     //console.log(this.props);

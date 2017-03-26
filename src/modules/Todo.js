@@ -1,3 +1,5 @@
+import * as FirebaseAction from '../firebaseHelper';
+
 /*
 액션들 
 => 어떤 일이 일어났다 something happens.
@@ -12,6 +14,9 @@ const MARK_DONE = 'MARK_DONE';
 
 */
 export function addTodo(title) {
+  FirebaseAction.addTodo({ title });
+  
+  
   return {
     type: ADD_TODO,
     title: title
