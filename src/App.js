@@ -5,7 +5,7 @@ import './App.css';
 import Item from './Item';
 import TodoForm from './TodoForm';
 import { addTodo, removeTodo, markDone } from './modules/Todo';
-
+import { init, signInAnonymously, onAuthStateChanged } from './firebaseHelper';
 
 
 class App extends Component {
@@ -15,6 +15,9 @@ class App extends Component {
   }
   
   componentDidMount() {
+    //로딩되자 마자 익명의 사용자로 로그인 시킨다 
+    
+    onAuthStateChanged();
     this.props.addTodo('harry');
   }
   
