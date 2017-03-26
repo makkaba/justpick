@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Provider, connect } from 'react-redux';
-import logo from './logo.svg';
+
 import './App.css';
 import Item from './Item';
 import TodoForm from './TodoForm';
-import configStore from './configStore';
 import { addTodo, removeTodo, markDone } from './modules/Todo';
 
 
@@ -12,8 +11,6 @@ import { addTodo, removeTodo, markDone } from './modules/Todo';
 class App extends Component {
   constructor() {
     super();
-    
-    //this가 누구인지 
     
   }
   

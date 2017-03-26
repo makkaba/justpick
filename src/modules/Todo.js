@@ -1,8 +1,16 @@
-//action creator
+/*
+액션들 
+=> 어떤 일이 일어났다 something happens.
+*/
 const ADD_TODO = 'ADD_TODO';
 const REMOVE_TODO = 'REMOVE_TODO';
 const MARK_DONE = 'MARK_DONE';
 
+
+/*
+액션 생성자 함수(action creator)
+
+*/
 export function addTodo(title) {
   return {
     type: ADD_TODO,
@@ -22,7 +30,7 @@ const initialState = {
 }
 
 
-//reducer
+//리듀서 (reducer)
 export default function(state = initialState, action) {
   console.log(state);
   switch (action.type) {
